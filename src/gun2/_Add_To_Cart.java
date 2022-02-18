@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class _Add_To_Cart {
 
     public static void main(String[] args) throws InterruptedException {
 
+       // Chrome"a dair notların asagida gozukmemesi icin bir kod satiri kullanilir.
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
 
         System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\ChromeDriver\\chromedriver.exe");
 
@@ -46,11 +49,14 @@ public class _Add_To_Cart {
         }
 
         String url = driver.getCurrentUrl();
-        Assert.assertEquals("Yanlis adrestesiniz", "https://www.saucedemo.com/inventory.html", url);
+        String expected = "https://www.saucedemo.com/inventory.html";
+        Assert.assertEquals("Yanlis adrestesiniz", "https://www.saucedemo.com/inventory.html", url); //Buradaki mesaj kod hata verdiğinde ekrana yansır.
+        // kod doğru olduğu sürece mesaj yazmaz.
         // Eger Assert sonucu dogru ise bu mesajı yaz.
         // "Testiniz Basari ile tamamlandi"
 
-
-
+        if (url.equals(expected)) {
+            System.out.println("Testiniz Basari ile tamamlandi");
+        }
     }
 }

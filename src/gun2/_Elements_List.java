@@ -35,5 +35,7 @@ public class _Elements_List {
             System.out.println("Urun İsmi: " +webElement.getText());
         }
 
+        driver.quit();
+
     }
 }

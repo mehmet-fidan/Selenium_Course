@@ -37,5 +37,6 @@ public class ByLinkText {
         WebElement urun1_partial = driver.findElement(By.partialLinkText("Bolt T-Shirt"));
         System.out.println("urun1_partial getText()= "+urun1_partial.getText());
         urun1_partial.click();
+        driver.quit();
     }
 }
